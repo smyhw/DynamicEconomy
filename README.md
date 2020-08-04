@@ -1,6 +1,6 @@
 # DynamicEconomy
 MC服务器插件&lt;动态经济>  
-  动态控制玩家卖出物品的价格  
+  *动态控制玩家卖出物品的价格*  
   指令:
   - /de set <价格><kbd>#设置手上的物品单价</kbd><kbd>需求权限节点<DynamicEconomy.admin></kbd>
   - /de sell<kbd>#出售手上的物品</kbd><kbd>无需权限节点</kbd>
