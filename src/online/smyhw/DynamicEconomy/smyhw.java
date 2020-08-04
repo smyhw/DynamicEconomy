@@ -65,8 +65,8 @@ public class smyhw extends JavaPlugin implements Listener
         			//给予玩家货币
         			double num = ((Player) sender).getInventory().getItemInMainHand().getAmount()*price;
         			String do_cmd = smyhw.cmd;
-        			do_cmd.replaceAll("%player%", sender.getName());
-        			do_cmd.replaceAll("%num%",num+"");
+        			do_cmd = do_cmd.replace("%player%", sender.getName());
+        			do_cmd = do_cmd.replace("%num%",num+"");
         			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),do_cmd);
         			//降价该物品
         			price = price-smyhw.cuts;
