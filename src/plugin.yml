@@ -1,0 +1,8 @@
+name: DynamicEconomy
+main: online.smyhw.DynamicEconomy.smyhw
+version: 1.0.0
+author: smyhw
+commands:
+  de:
+    description: de
+    usage: /<command>
