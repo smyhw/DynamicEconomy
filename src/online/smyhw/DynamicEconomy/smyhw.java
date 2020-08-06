@@ -60,7 +60,8 @@ public class smyhw extends JavaPlugin implements Listener
         	{
         		case "sell":
         		{
-        			double price = configer.getDouble(((Player) sender).getInventory().getItemInMainHand().getType().name());
+        			String itemName = ((Player) sender).getInventory().getItemInMainHand().getType().name();
+        			double price = configer.getDouble("data."+itemName);
         			if(price==0) {sender.sendMessage(prefix+"该物品不可被卖出"); return true;}
         			//给予玩家货币
         			double num = ((Player) sender).getInventory().getItemInMainHand().getAmount()*price;
@@ -70,16 +71,16 @@ public class smyhw extends JavaPlugin implements Listener
         			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),do_cmd);
         			//降价该物品
         			price = price-smyhw.cuts;
-        			configer.set(((Player) sender).getInventory().getItemInMainHand().getType().name(), price);
+        			configer.set("data."+itemName, price);
         			//升价其他物品
         			for(Material i:Material.values())
         			{
         				Double price_ = configer.getDouble("data."+i.name());
-        				if(i.name().equals(((Player) sender).getInventory().getItemInMainHand().getType().name())) {continue;}
+        				if(i.name().equals(itemName)) {continue;}
         				if(price_==0) {continue;}
         				configer.set("data."+i.name(),price_);
         			}
-        			sender.sendMessage(prefix+"卖出物品<"+((Player) sender).getInventory().getItemInMainHand().getType().name()+">获得货币<"+ String.format("%.2f", num)+">[目前单价<"+ String.format("%.2f", price)+">]");
+        			sender.sendMessage(prefix+"卖出物品<"+itemName+">获得货币<"+ String.format("%.2f", num)+">[目前单价<"+ String.format("%.2f", price)+">]");
         			//删除玩家物品
         			((Player) sender).getInventory().setItemInMainHand(null);
         			break;
