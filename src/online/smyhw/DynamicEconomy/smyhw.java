@@ -79,7 +79,7 @@ public class smyhw extends JavaPlugin implements Listener
         				if(price_==0) {continue;}
         				configer.set("data."+i.name(),price_);
         			}
-        			sender.sendMessage(prefix+"卖出物品<"+((Player) sender).getInventory().getItemInMainHand().getType().name()+">获得货币<"+(int)num+">[目前单价<"+(int)price+">]");
+        			sender.sendMessage(prefix+"卖出物品<"+((Player) sender).getInventory().getItemInMainHand().getType().name()+">获得货币<"+ String.format("%.2f", num)+">[目前单价<"+ String.format("%.2f", price)+">]");
         			//删除玩家物品
         			((Player) sender).getInventory().setItemInMainHand(null);
         			break;
