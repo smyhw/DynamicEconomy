@@ -103,7 +103,7 @@ public class smyhw extends JavaPlugin implements Listener
         		case "set":
         		{
         			if(args.length<2) {helper(sender);return true;}
-        			configer.set(((Player) sender).getInventory().getItemInMainHand().getType().name(), Double.valueOf(args[1]));
+        			configer.set("data."+((Player) sender).getInventory().getItemInMainHand().getType().name(), Double.valueOf(args[1]));
         			sender.sendMessage(prefix+"物品<"+((Player) sender).getInventory().getItemInMainHand().getType().name()+">的价格已经设置为<"+args[1]+">");
         			saveConfig();
         			break;
